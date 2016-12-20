@@ -29,7 +29,7 @@ Accounts.registerLoginHandler(function (loginRequest) {
     token: loginRequest.dispatch_authToken,
   });
 
-  if (!doc) {
+  if (!doc || !doc.userId) {
     throw new Meteor.Error('Invalid token');
   }
 
